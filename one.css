@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color-light: #ffffff;  /* Light Mode Background Color */
+  --bg-color-dark: #212529;   /* Dark Mode Background Color */
+  --bg-color2-light: #f1f1f1; /* Light Mode Card Background */
+  --bg-color2-dark: #2a2b2b;  /* Dark Mode Card Background */
+  --text-color-light: black;   /* Light Mode Text Color */
+  --text-color-dark: white;    /* Dark Mode Text Color */
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color-dark); /* Default Dark Mode */
+  color: var(--text-color-dark);
+  font-family: sans-serif;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for modes */
+}
+
+body.light-mode {
+  background-color: var(--bg-color-light); /* Light Mode Background */
+  color: var(--text-color-light); /* Light Mode Text Color */
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  padding: 50px;
+  background-color: var(--bg-color1);
+}
+body.light-mode .header {
+  background-color: var(--bg-color2-light); /* Light Mode Header */
+}
+
+.header{
+  display: flex ;
+  position: sticky;
+  background-color: var(--bg-color2-dark);
+  border-radius: 20px;
+  top: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  margin-bottom: 20px;
+  & #city_input{
+    background-color: var(--bg-color1);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    width: 300px;
+    &:focus{
+      outline: none;
+    }
+}
+& #searchbtn{
+  border: none;
+  font-size: 16px;
+  padding: 12px;
+  width: 50px;
+  border-radius: 0 10px 10px 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+& #current_loc-btn{
+  border: none;
+  font-size: 15px;
+  padding: 12px;
+  width: 50px;
+ border-radius: 10px 0 0 10px;
+ background-color: #fff;
+ cursor: pointer;
+}
+}
+#searchbtn:hover,
+#current_loc-btn:hover {
+  background-color: #ccc;
+}
+.card{
+  background-color: var(--bg-color2-dark);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  & p{
+    font-size: 20px;
+    color: #999;
+  }
+  h2{
+    font-size: 32px;
+    font-weight: 500;
+  }
+}
+body.light-mode .card {
+  background-color: var(--bg-color2-light); /* Light Mode Card */
+}
+
+.card .card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the container */
+  opacity: 0.5; /* Makes image semi-transparent */
+  z-index: 1; /* Places image behind text */
+}
+.card1{
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 250px;
+}
+.top-container {
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-container .list-group {
+  width: 100%; /* Full width of the container */
+}
+
+.top-container .list-group-item {
+  display: flex;
+  justify-content: space-between; /* Distributes space evenly */
+  align-items: center; /* Aligns all items vertically */
+  padding: 10px 15px; /* Adds spacing for readability */
+  border: none; /* Removes default list item borders */
+  background: transparent; /* Matches background */
+  color: #fff; /* Text color */
+}
+.top-container .list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.top-container .list-group-item strong {
+  flex: 1; /* Take up available space */
+  color: #ddd; /* Label color */
+  text-align: left;
+}
+
+.top-container .list-group-item span {
+  flex: 1; /* Align spans properly */
+  text-align: right; /* Values align to the right */
+  color: #fff;
+  font-size: 16px;
+}
+
+.top-container .list-group-item i {
+  flex-shrink: 0; /* Prevent icon from shrinking */
+  margin-left: 10px; /* Space between icon and value */
+  color: #888;
+  font-size: 18px;
+}
+
+.top-container .temps {
+  color: #ff7675; /* Special color for temperature */
+  font-weight: bold;
+}
+
+.top-container .fahrenheit {
+  font-size: 12px;
+  color: #aaa;
+  margin-left: 5px;
+}
+
+.top-container .list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  cursor: pointer;
+}
+
+.initial {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 270px;
+}
+
+/* Sun-Time Section */
+.sun-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 245px;
+  text-align: center;
+  width: 350px;
+}
+
+.card-img{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card-img-overlay {
+  position: relative;
+  z-index: 2; /* Ensures overlay content is above image */
+}
+
+.card-img-overlay i {
+  font-size: 24px;
+  color: #ffd700; /* Gold color for sun/moon icons */
+  margin-bottom: 5px;
+}
+
+.card-img-overlay h3 {
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.card-img-overlay h2 {
+  margin: 10px 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.day-forecast {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;/* Horizontal row layout */
+  gap: 30px; /* Space between cards */
+  padding: 10px 0;
+  overflow-x: auto; /* Scrollable if content overflows */
+  height: 100%;
+  width: 100%;
+}
+.weather-data{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+  & .weather-left{
+    grid-column: span 1;
+    & .current-weather{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & h2{
+        margin: 7px 0;
+      }
+      & p{
+        color: #fff;
+      }
+    }
+    & .card-footer{
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    & .forecast-item{
+      background-color: var(--bg-color2);
+      border-radius: 10px;
+      padding: 10px;
+      width: 100%; /* Consistent card width */
+      height: 250px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      justify-content: space-between;
+      & .icon-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+      }
+    }
+  }
+}
+
+
